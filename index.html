@@ -55,9 +55,10 @@
       $(".new").click(function() {
        $(".original")
        .clone()
-       .removeClass("sticker") 
+       .removeClass("original") 
        .appendTo("body")
        .css({top: '30px'})
+       .addClass("sticker")
        .draggable()
     });
 }); 
