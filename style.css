@@ -64,6 +64,7 @@
     cursor: pointer;
     font-size: 13px;
     color: white;
+    z-index: 1;
 }
 .delete { 
     position: absolute;
@@ -78,5 +79,6 @@
     cursor: pointer;
     font-size: 13px;
     color: white;
+    z-index: 1;
 
 }
