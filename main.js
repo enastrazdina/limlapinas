@@ -16,7 +16,7 @@ $('.new').click(function() {
       var bodyHeight = document.body.clientHeight;
       var randPosX = Math.floor((Math.random()*bodyWidth));
       var randPosY = Math.floor((Math.random()*bodyHeight));
-      var posLog = 
+   
       $('.original').css('left', randPosX);
       $('.original').css('top', randPosY); 
 
