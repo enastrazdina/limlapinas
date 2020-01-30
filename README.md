@@ -1,4 +1,4 @@
 # limlapinas
 
-cannot find the way to remove post-it, which was last clicked or selected, instead removes the last-added.
-second thing I am stuck with is that when I animate more that one post-it, they overlap with the bottom one being invisible
+When I use close() all of the post-its are draggable, but the #close button in the post-it, works only for one of them - last one.
+If I use clone(true), #close button in every post-it works, but only one - last one - is draggable!
