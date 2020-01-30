@@ -40,7 +40,7 @@ body {
  border-top: 15px solid rgb(233, 218, 82);
  box-shadow: 6px 8px 3px rgb(122, 116, 78);
 }
-#close {
+.close {
     font-size: 20px;
     color: grey;
     font-weight: 200;
