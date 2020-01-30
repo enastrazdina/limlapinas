@@ -7,7 +7,7 @@ $(function() {
 $('.new').click(function() {
 
      $(".original") 
-     .clone()               // ja clone(true) tad katrs #close izdzēš savu parent, bet draggable ir tikai viens
+     .clone()               // ja clone(true) tad katrs .close izdzēš savu parent, bet draggable ir tikai viens
      .removeClass("original")
      .addClass(".sticker")
      .appendTo("body")
@@ -23,7 +23,7 @@ $('.new').click(function() {
   });
 
   $(document).ready(function(){
-  $("#close").click(function(){
+  $(".close").click(function(){
       x = $(".sticker")
       $(this).parent(".sticker").detach();
       $(".new").click(function(){
