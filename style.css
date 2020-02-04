@@ -3,11 +3,12 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     outline: none;
 }
+
 body {
     overflow: hidden;
     height: 400px;
     width: 1100px;
-  }
+}
 
 .saved {
     position: fixed;
@@ -18,6 +19,7 @@ body {
     width: 230px;
     background-color: rgb(155, 96, 48);
 }
+
 .add {
     background-color: rgb(155, 96, 48);
     text-align: center;
@@ -26,21 +28,24 @@ body {
     border: none;
     cursor: pointer;
 }
+
 .sticker:before,
 .sticker:after {
- content: "";
- position: absolute;
- left: 0; right: 0;
- border-right: 15px solid transparent;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-right: 15px solid transparent;
 }
 
 .sticker:after {
- bottom: auto;
- top: 100%;
- border-bottom: none;
- border-top: 15px solid rgb(233, 218, 82);
- box-shadow: 6px 8px 3px rgb(122, 116, 78);
+    bottom: auto;
+    top: 100%;
+    border-bottom: none;
+    border-top: 15px solid rgb(233, 218, 82);
+    box-shadow: 6px 8px 3px rgb(122, 116, 78);
 }
+
 .close {
     font-size: 20px;
     color: grey;
@@ -49,6 +54,7 @@ body {
     background-color: inherit;
     cursor: pointer;
 }
+
 .sticker {
     position: absolute;
     left: 230px;
@@ -58,8 +64,8 @@ body {
     cursor: move;
     z-index: 1;
     box-shadow: 6px 18px 5px rgb(122, 116, 78);
-    
 }
+
 textarea {
     border: none;
     text-align: center;
@@ -69,6 +75,7 @@ textarea {
     padding-top: 25px;
     resize: none;
 }
+
 .new {
     position: absolute;
     right: 0;
