@@ -21,13 +21,16 @@ body {
 }
 
 .add {
+    position: absolute;
+    left: 25px;
     background-color: rgb(55, 55, 56);
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(128, 128, 128);
     border: none;
     cursor: pointer;
-    font-weight: 200;
+    font-weight: 100;
+    padding-top: 20px;
 }
 
 .original {
@@ -36,7 +39,7 @@ body {
 
 .close {
     font-size: 20px;
-    color: grey;
+    color: rgb(55, 55, 56);
     font-weight: 200;
     border: none;
     background-color: inherit;
@@ -58,7 +61,42 @@ textarea {
     text-align: center;
     background: rgb(236, 129, 29);
     font-size: 18px;
-    color: rgb(255, 51, 0);
+    color: rgb(55, 55, 56);
     padding-top: 25px;
     resize: none;
+    font-weight: 300;
+    width: 180px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+::placeholder {
+    color: rgb(55, 55, 56);
+}
+
+.sticker:before,
+.sticker:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-right: 15px solid transparent;
+}
+
+.sticker:after {
+    border-top: 15px solid transparent;
+    top: 100%;
+    bottom: 0;
+    width: 180px;
+    height: 0;
+    border-width: 20px 0px 0 0;
+    border-color: rgb(236, 129, 29);
+}
+
+.info {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+    background-color: rgb(55, 55, 56);
+    color: rgb(128, 128, 127);
 }
