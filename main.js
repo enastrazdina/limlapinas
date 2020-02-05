@@ -1,20 +1,16 @@
 $(document).ready(function() {
-    var postIt = $(".sticker");
+    var originalEl = $('.original');
+    var deleteSticker = function() {
+        $(this).parent().remove();
+    }
 
-    $(postIt).draggable();
+    var cloneSticker = function() {
+        var newSticker = originalEl.clone();
 
-    $(".add").click(function() {
-        $(postIt).animate({ left: '13', top: '35' });
-    });
-
-    $('.new').click(function() {
-
-        $(".original")
-            .clone()
-            .removeClass("original")
-            .addClass(".sticker")
-            .appendTo("body")
-            .draggable()
+        newSticker.removeClass('original');
+        newSticker.appendTo('body');
+        newSticker.draggable();
+        newSticker.find('.close').on('click', deleteSticker);
         var bodyWidth = document.body.clientWidth
         var bodyHeight = document.body.clientHeight;
         var randPosX = Math.floor((Math.random() * bodyWidth));
@@ -24,8 +20,8 @@ $(document).ready(function() {
             'left': randPosX,
             'top': randPosY
         });
-        $(".close").click(function() {
-            $(this).parent().remove();
-        });
-    });
+    }
+    cloneSticker();
+
+    $('.new').on('click', cloneSticker);
 });
