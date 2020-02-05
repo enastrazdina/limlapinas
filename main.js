@@ -1,8 +1,6 @@
 $(document).ready(function() {
     var originalEl = $('.original');
-
     var deleteSticker = function() {
-
         $(this).parent().remove();
     }
 
@@ -23,10 +21,7 @@ $(document).ready(function() {
             'top': randPosY
         });
     }
-
     cloneSticker();
 
     $('.new').on('click', cloneSticker);
-    $('.add').on('click', moveSticker);
-
 });
