@@ -23,5 +23,5 @@ $(document).ready(function() {
     }
     cloneSticker();
 
-    $('.new').on('click', cloneSticker);
+    $('.add').on('click', cloneSticker);
 });
