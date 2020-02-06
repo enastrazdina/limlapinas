@@ -50,11 +50,11 @@ body {
     position: absolute;
     left: 230px;
     width: 200px;
-    height: 200px;
+    min-height: 200px;
     background: rgb(236, 129, 29);
     cursor: move;
     z-index: 1;
-    box-shadow: 10px 10px 5px #aaaaaa;
+    border: solid 1px rgb(207, 207, 207);
 }
 
 textarea {
@@ -88,6 +88,11 @@ textarea {
 .sticker:after {
     content: "";
     position: absolute;
+}
+
+.sticker::before {
+    border-bottom: solid 1px rgb(207, 207, 207) !important;
+    border-left: solid 1px rgb(207, 207, 207) !important;
 }
 
 .sticker::before {
