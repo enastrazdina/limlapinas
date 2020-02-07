@@ -8,12 +8,11 @@ $(document).ready(function() {
     var autosize = function() {
         var el = this;
         setTimeout(function() {
-            $(el).css({
+            el.css({
                 height: 'auto',
                 padding: 10
             });
-
-            $(el).css({ height: el.scrollHeight })
+            el.css({ height: el.scrollHeight })
         }, 0);
     }
 
