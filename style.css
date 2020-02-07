@@ -3,8 +3,6 @@
     outline: none;
 }
 
-@media only screen and (min-width: 768px) {}
-
 body {
     background: rgb(235, 235, 235);
     overflow: hidden;
@@ -56,7 +54,9 @@ body {
     background: rgb(236, 129, 29);
     cursor: move;
     z-index: 1;
-    border: solid 1px rgb(207, 207, 207);
+    border-top: solid 1px rgb(207, 207, 207);
+    border-right: solid 1px rgb(207, 207, 207);
+    border-left: solid 1px rgb(207, 207, 207);
 }
 
 textarea {
@@ -93,21 +93,19 @@ textarea {
 }
 
 .sticker::before {
+    top: 100%;
+    bottom: 0;
+    width: 175px;
+    height: 25px;
+    border-width: 25px 25px 0 0;
+    border-color: rgb(236, 129, 29);
+    background-color: rgb(236, 129, 29);
+    left: -1px;
     border-bottom: solid 1px rgb(207, 207, 207) !important;
     border-left: solid 1px rgb(207, 207, 207) !important;
 }
 
-.sticker::before {
-    border-top: 15px solid transparent;
-    top: 100%;
-    bottom: 0;
-    width: 175px;
-    height: 0;
-    border-width: 25px 25px 0 0;
-    border-color: rgb(236, 129, 29);
-}
-
-.sticker .sticker-footer .sticker-footer-div {
+.sticker .footer {
     position: absolute;
     width: 0px;
     top: 100%;
