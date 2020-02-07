@@ -12,7 +12,9 @@ $(document).ready(function() {
                 height: 'auto',
             });
 
-            el.css({ height: el[0].scrollHeight });
+            el.css({
+                height: el[0].scrollHeight
+            });
         }, 0);
     }
 
