@@ -1,44 +1,48 @@
-$(document).ready(function() {
-    var originalEl = $('.original');
+$(document).ready(function () {
+  var originalEl = $('.original');
 
-    var deleteSticker = function() {
-        $(this).parent().remove();
-    }
+  var deleteSticker = function () {
+    $(this).parent().remove();
+  }
 
-    var autosize = function() {
-        var el = $(this);
-        setTimeout(function() {
-            el.css({
-                height: 'auto',
-            });
+  var autosize = function () {
+    var el = $(this);
+    setTimeout(function () {
+      el.css({
+        height: 'auto',
+      });
 
-            el.css({
-                height: el[0].scrollHeight
-            });
-        }, 0);
-    }
+      el.css({
+        height: el[0].scrollHeight
+      });
+    }, 0);
+  }
 
-    var cloneSticker = function() {
-        var newSticker = originalEl.clone();
 
-        newSticker.removeClass('original');
-        newSticker.appendTo('body');
-        newSticker.draggable();
+  var cloneSticker = function () {
+    var newSticker = originalEl.clone();
 
-        newSticker.find('.close').on('click', deleteSticker);
-        newSticker.find('textarea').on('keydown', autosize);
+    newSticker.removeClass('original');
+    newSticker.appendTo('body');
+    newSticker.draggable();
 
-        var bodyWidth = document.body.clientWidth
-        var bodyHeight = document.body.clientHeight;
-        var randPosX = Math.floor((Math.random() * bodyWidth));
-        var randPosY = Math.floor((Math.random() * bodyHeight));
+    newSticker.find('.close').on('click', deleteSticker);
+    newSticker.find('textarea').on('keydown', autosize);
 
-        $('.original').css({
-            'left': randPosX,
-            'top': randPosY
-        });
-    }
-    cloneSticker();
+    newSticker.on('focus',function(){
+    });
 
-    $('.add').on('click', cloneSticker);
+    var bodyWidth = document.body.clientWidth
+    var bodyHeight = document.body.clientHeight;
+    var randPosX = Math.floor((Math.random() * bodyWidth));
+    var randPosY = Math.floor((Math.random() * bodyHeight));
+
+    $('.original').css({
+      'left': randPosX,
+      'top': randPosY
+    });
+  }
+  cloneSticker();
+
+  $('.add').on('click', cloneSticker);
 });
