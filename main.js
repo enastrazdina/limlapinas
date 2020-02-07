@@ -10,7 +10,6 @@ $(document).ready(function() {
         setTimeout(function() {
             el.css({
                 height: 'auto',
-                padding: 10
             });
 
             el.css({ height: el[0].scrollHeight });
