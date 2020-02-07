@@ -14,7 +14,7 @@ $(document).ready(function() {
             });
 
             el.css({ height: el[0].scrollHeight });
-        }, 100);
+        }, 0);
     }
 
     var cloneSticker = function() {
