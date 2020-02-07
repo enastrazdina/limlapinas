@@ -73,7 +73,7 @@ textarea {
     overflow: hidden;
 }
 
- ::placeholder {
+::placeholder {
     color: rgb(216, 216, 216);
     font-weight: 100;
 }
