@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>limlapinas</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -16,15 +16,16 @@
 
 <body>
     <div class="saved">
-        <p class="add">
-            ADD TO BOARD
-        </p>
+        <button class="add">
+            + add new sticker
+        </button>
     </div>
-    <button class="new">add new sticker</button>
     <div id="container">
         <div class="original sticker">
             <button class="close">x</button>
-            <textarea placeholder="Enter your text" class="input" cols="20" rows="4"></textarea>
+            <textarea placeholder="Enter your text"></textarea>
+            <div class="footer">
+            </div>
         </div>
     </div>
 </body>
