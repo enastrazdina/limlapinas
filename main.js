@@ -6,14 +6,15 @@ $(document).ready(function() {
     }
 
     var autosize = function() {
-        var el = this;
+        var el = $(this);
         setTimeout(function() {
             el.css({
                 height: 'auto',
                 padding: 10
             });
-            el.css({ height: el.scrollHeight })
-        }, 0);
+
+            el.css({ height: el[0].scrollHeight });
+        }, 100);
     }
 
     var cloneSticker = function() {
