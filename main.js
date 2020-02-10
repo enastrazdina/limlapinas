@@ -18,6 +18,10 @@ $(document).ready(function () {
     }, 0);
   }
 
+  var focused = function () {
+    $(this).appendTo('body');
+  }
+
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
 
@@ -33,9 +37,6 @@ $(document).ready(function () {
     var randPosX = Math.floor((Math.random() * bodyWidth));
     var randPosY = Math.floor((Math.random() * bodyHeight));
 
-    var focused = function () {
-      newSticker.appendTo('body');
-    }
     newSticker.on('mousedown', focused);
 
     $('.original').css({
