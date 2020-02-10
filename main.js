@@ -5,7 +5,7 @@ $(document).ready(function () {
     $(this).parent().remove();
   }
 
-  var autosize = function () {
+  var autosizeInputField = function () {
     var el = $(this);
     setTimeout(function () {
       el.css({
@@ -18,7 +18,7 @@ $(document).ready(function () {
     }, 0);
   }
 
-  var focused = function () {
+  var setActiveSticker = function () {
     $(this).appendTo('body');
   }
 
@@ -30,16 +30,16 @@ $(document).ready(function () {
     newSticker.draggable();
 
     newSticker.find('.close').on('click', deleteSticker);
-    newSticker.find('textarea').on('keydown', autosize);
+    newSticker.find('textarea').on('keydown', autosizeInputField);
 
     var bodyWidth = document.body.clientWidth
     var bodyHeight = document.body.clientHeight;
     var randPosX = Math.floor((Math.random() * bodyWidth));
     var randPosY = Math.floor((Math.random() * bodyHeight));
 
-    newSticker.on('mousedown', focused);
+    newSticker.on('mousedown', setActiveSticker);
 
-    $('.original').css({
+    newSticker.css({
       'left': randPosX,
       'top': randPosY
     });
