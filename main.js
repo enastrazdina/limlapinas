@@ -33,7 +33,14 @@ $(document).ready(function () {
     var randPosX = Math.floor((Math.random() * bodyWidth));
     var randPosY = Math.floor((Math.random() * bodyHeight));
 
-    newSticker.focus(function () {
+    // newSticker.focus(function () {
+    //   newSticker.appendTo('body');
+    // });
+
+    newSticker.mouseup(function (){
+      newSticker.appendTo('body');
+    })
+    .mousedown(function (){
       newSticker.appendTo('body');
     });
 
