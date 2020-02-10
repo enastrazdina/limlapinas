@@ -18,7 +18,6 @@ $(document).ready(function () {
     }, 0);
   }
 
-
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
 
@@ -29,18 +28,20 @@ $(document).ready(function () {
     newSticker.find('.close').on('click', deleteSticker);
     newSticker.find('textarea').on('keydown', autosize);
 
-    newSticker.on('focus',function(){
-    });
-
     var bodyWidth = document.body.clientWidth
     var bodyHeight = document.body.clientHeight;
     var randPosX = Math.floor((Math.random() * bodyWidth));
     var randPosY = Math.floor((Math.random() * bodyHeight));
 
+    newSticker.focus(function () {
+      newSticker.appendTo('body');
+    });
+
     $('.original').css({
       'left': randPosX,
       'top': randPosY
     });
+
   }
   cloneSticker();
 
