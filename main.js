@@ -44,8 +44,6 @@ $(document).ready(function () {
     newSticker.find('textarea')
       .on('keydown', autosizeInputField)
       .on('focus', function () {
-        // newSticker.trigger('focus');
-
         setActiveSticker(null, newSticker);
         $(this).focus();
       })
@@ -58,7 +56,6 @@ $(document).ready(function () {
     newSticker.on('dragstart focus', function (e) {
       setActiveSticker(e, newSticker);
     });
-
 
     newSticker.css({
       'left': randPosX,
