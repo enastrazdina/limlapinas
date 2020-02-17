@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     newSticker.find('textarea')
       .on('keydown', autosizeInputField)
-      .on('focus', function () {
+      .on('mousedown', function () {
         setActiveSticker(null, newSticker);
         $(this).focus();
       })
