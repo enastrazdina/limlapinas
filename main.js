@@ -34,10 +34,8 @@ $(document).ready(function () {
 
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to close?');
-      if (confirmationText === true) {
+      if (confirmationText) {
         deleteSticker($(this).parent());
-      } else {
-        return false;
       }
     });
 
