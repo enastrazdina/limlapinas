@@ -1,8 +1,8 @@
 $(document).ready(function () {
   var originalEl = $('.original');
 
-  var deleteSticker = function () {
-    $(this).parent().remove();
+  var deleteSticker = function (stickerEl) {
+    stickerEl.remove();
   }
 
   var autosizeInputField = function () {
@@ -18,7 +18,8 @@ $(document).ready(function () {
     }, 0);
   }
 
-  var setActiveSticker = function () {
+  var setActiveSticker = function (event) {
+    event.stopPropagation();
     $(this).appendTo('body');
   }
 
@@ -29,15 +30,28 @@ $(document).ready(function () {
     newSticker.appendTo('body');
     newSticker.draggable();
 
-    newSticker.find('.close').on('click', deleteSticker);
-    newSticker.find('textarea').on('keydown', autosizeInputField);
+    newSticker.find('.close').on('click', function () {
+      var confirmationText = confirm('Do you really want to close?');
+      if (confirmationText === true) {
+        deleteSticker($(this).parent());
+      } else {
+        return false;
+      }
+    });
+
+    newSticker.find('textarea')
+      .on('keydown', autosizeInputField)
+      .on('focus', function () {
+        newSticker.trigger('focus');
+        $(this).focus();
+      })
 
     var bodyWidth = document.body.clientWidth
     var bodyHeight = document.body.clientHeight;
     var randPosX = Math.floor((Math.random() * bodyWidth));
     var randPosY = Math.floor((Math.random() * bodyHeight));
 
-    newSticker.on('mousedown', setActiveSticker);
+    newSticker.on('dragstart focus', setActiveSticker);
 
     newSticker.css({
       'left': randPosX,
