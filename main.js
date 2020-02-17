@@ -1,11 +1,11 @@
 $(document).ready(function () {
   var originalEl = $('.original');
 
-  var deleteSticker = function () {
-    $(this).parent().remove();
+  var deleteSticker = function (stickerEl) {
+    stickerEl.remove();
   }
 
-  var autosize = function () {
+  var autosizeInputField = function () {
     var el = $(this);
     setTimeout(function () {
       el.css({
@@ -18,6 +18,13 @@ $(document).ready(function () {
     }, 0);
   }
 
+  var setActiveSticker = function (event, el) {
+    if (event) {
+      event.stopPropagation();
+    }
+    el.appendTo('body');
+  }
+
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
 
@@ -25,15 +32,30 @@ $(document).ready(function () {
     newSticker.appendTo('body');
     newSticker.draggable();
 
-    newSticker.find('.close').on('click', deleteSticker);
-    newSticker.find('textarea').on('keydown', autosize);
+    newSticker.find('.close').on('click', function () {
+      var confirmationText = confirm('Do you really want to close?');
+      if (confirmationText) {
+        deleteSticker($(this).parent());
+      }
+    });
+
+    newSticker.find('textarea')
+      .on('keydown', autosizeInputField)
+      .on('mousedown', function () {
+        setActiveSticker(null, newSticker);
+        $(this).focus();
+      })
 
     var bodyWidth = document.body.clientWidth
     var bodyHeight = document.body.clientHeight;
     var randPosX = Math.floor((Math.random() * bodyWidth));
     var randPosY = Math.floor((Math.random() * bodyHeight));
 
-    $('.original').css({
+    newSticker.on('dragstart focus', function (e) {
+      setActiveSticker(e, newSticker);
+    });
+
+    newSticker.css({
       'left': randPosX,
       'top': randPosY
     });
