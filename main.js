@@ -18,9 +18,11 @@ $(document).ready(function () {
     }, 0);
   }
 
-  var setActiveSticker = function (event) {
-    event.stopPropagation();
-    $(this).appendTo('body');
+  var setActiveSticker = function (event, el) {
+    if (event) {
+      event.stopPropagation();
+    }
+    el.appendTo('body');
   }
 
   var cloneSticker = function () {
@@ -42,7 +44,9 @@ $(document).ready(function () {
     newSticker.find('textarea')
       .on('keydown', autosizeInputField)
       .on('focus', function () {
-        newSticker.trigger('focus');
+        // newSticker.trigger('focus');
+
+        setActiveSticker(null, newSticker);
         $(this).focus();
       })
 
@@ -51,7 +55,10 @@ $(document).ready(function () {
     var randPosX = Math.floor((Math.random() * bodyWidth));
     var randPosY = Math.floor((Math.random() * bodyHeight));
 
-    newSticker.on('dragstart focus', setActiveSticker);
+    newSticker.on('dragstart focus', function (e) {
+      setActiveSticker(e, newSticker);
+    });
+
 
     newSticker.css({
       'left': randPosX,
