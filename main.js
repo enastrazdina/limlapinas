@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var originalEl = $('.original');
+  var footerHeight = 25;
 
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
@@ -35,7 +36,7 @@ $(document).ready(function () {
     });
 
     newSticker.find('.close').on('click', function () {
-      var confirmationText = confirm('Do you really want to close?');
+      var confirmationText = confirm('Do you really want to delete?');
       if (confirmationText) {
         deleteSticker($(this).parent());
       }
@@ -50,8 +51,9 @@ $(document).ready(function () {
 
     var containerWidth = $('.draggable-js').width();
     var containerHeight = $('.draggable-js').height();
-    var randomWidth = Math.floor(Math.random() * (containerWidth - 200));
-    var randomHeight = Math.floor(Math.random() * (containerHeight - 200));
+    var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
+    console.log(newSticker.width(), newSticker.height());
+    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height() - footerHeight));
 
 
     newSticker.on('dragstart focus', function (e) {
@@ -59,8 +61,8 @@ $(document).ready(function () {
     });
 
     newSticker.css({
-      'left': randomWidth,
-      'top': randomHeight
+      'left': randomPosLeft,
+      'top': randomPosTop
     });
   }
   cloneSticker();
