@@ -22,16 +22,16 @@ $(document).ready(function () {
     if (event) {
       event.stopPropagation();
     }
-    el.appendTo('body');
+    el.appendTo('.draggable-js');
   }
 
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
 
     newSticker.removeClass('original');
-    newSticker.appendTo('.draggable');
+    newSticker.appendTo('.draggable-js');
     newSticker.draggable({
-      containment: '.draggable'
+      containment: '.draggable-js'
     });
 
     newSticker.find('.close').on('click', function () {
@@ -48,10 +48,10 @@ $(document).ready(function () {
         $(this).focus();
       })
 
-    var containerWidth = $('.draggable').width();
-    var containerHeight = $('.draggable').height();
-    var randomWidth = Math.floor(Math.random() * containerWidth);
-    var randomHeight = Math.floor(Math.random() * containerHeight);
+    var containerWidth = $('.draggable-js').width();
+    var containerHeight = $('.draggable-js').height();
+    var randomWidth = Math.floor(Math.random() * (containerWidth - 200));
+    var randomHeight = Math.floor(Math.random() * (containerHeight - 200));
 
 
     newSticker.on('dragstart focus', function (e) {
