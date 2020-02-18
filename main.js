@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var originalEl = $('.original');
-  var footerHeight = 25;
+  var stickerHeight = 25;
 
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
@@ -52,8 +52,7 @@ $(document).ready(function () {
     var containerWidth = $('.draggable-js').width();
     var containerHeight = $('.draggable-js').height();
     var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
-    console.log(newSticker.width(), newSticker.height());
-    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height() - footerHeight));
+    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height() - stickerHeight));
 
 
     newSticker.on('dragstart focus', function (e) {
