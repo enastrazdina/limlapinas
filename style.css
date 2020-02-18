@@ -111,6 +111,7 @@ textarea {
   border-width: 25px 25px 0 0;
   border-color: rgb(255, 94, 0) transparent transparent transparent;
 }
+
 #draggable {
   position: absolute;
   left: 230px;

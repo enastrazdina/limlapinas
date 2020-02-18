@@ -29,8 +29,10 @@ $(document).ready(function () {
     var newSticker = originalEl.clone();
 
     newSticker.removeClass('original');
-    newSticker.appendTo('body');
-    newSticker.draggable();
+    newSticker.appendTo('#draggable');
+    newSticker.draggable({
+      containment: '#draggable'
+    });
 
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to close?');
@@ -46,18 +48,19 @@ $(document).ready(function () {
         $(this).focus();
       })
 
-    var bodyWidth = document.body.clientWidth
-    var bodyHeight = document.body.clientHeight;
-    var randPosX = Math.floor((Math.random() * bodyWidth));
-    var randPosY = Math.floor((Math.random() * bodyHeight));
+    var containerWidth = $('#draggable').width();
+    var containerHeight = $('#draggable').height();
+    var randomWidth = Math.floor(Math.random() * containerWidth);
+    var randomHeight = Math.floor(Math.random() * containerHeight);
+
 
     newSticker.on('dragstart focus', function (e) {
       setActiveSticker(e, newSticker);
     });
 
     newSticker.css({
-      'left': randPosX,
-      'top': randPosY
+      'left': randomWidth,
+      'top': randomHeight
     });
   }
   cloneSticker();
