@@ -29,9 +29,9 @@ $(document).ready(function () {
     var newSticker = originalEl.clone();
 
     newSticker.removeClass('original');
-    newSticker.appendTo('#draggable');
+    newSticker.appendTo('.draggable');
     newSticker.draggable({
-      containment: '#draggable'
+      containment: '.draggable'
     });
 
     newSticker.find('.close').on('click', function () {
@@ -48,10 +48,10 @@ $(document).ready(function () {
         $(this).focus();
       })
 
-    var containerWidth = $('#draggable').width();
-    var containerHeight = $('#draggable').height();
-    var randomWidth = Math.floor(Math.random() * containerWidth);
-    var randomHeight = Math.floor(Math.random() * containerHeight);
+    // var containerWidth = $('.saved').width();
+    // var containerHeight = $('#draggable').height();
+    // var randomWidth = Math.floor(Math.random() * containerWidth);
+    // var randomHeight = Math.floor(Math.random() * containerHeight);
 
 
     newSticker.on('dragstart focus', function (e) {
