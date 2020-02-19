@@ -10,55 +10,6 @@ body {
   width: 1100px;
 }
 
-.saved {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 0;
-  height: 100%;
-  width: 230px;
-  background-color: rgb(55, 55, 56);
-}
-
-.add {
-  position: absolute;
-  left: 25px;
-  background-color: rgb(55, 55, 56);
-  text-align: center;
-  font-size: 20px;
-  color: rgb(128, 128, 128);
-  border: none;
-  cursor: pointer;
-  font-weight: 100;
-  padding-top: 20px;
-}
-
-.original {
-  display: none;
-}
-
-.close {
-  font-size: 20px;
-  color: rgb(55, 55, 56);
-  font-weight: 200;
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
-}
-
-.sticker {
-  position: absolute;
-  left: 230px;
-  width: 200px;
-  min-height: 200px;
-  background: rgb(236, 129, 29);
-  cursor: move;
-  z-index: 1;
-  border-top: solid 1px rgb(207, 207, 207);
-  border-right: solid 1px rgb(207, 207, 207);
-  border-left: solid 1px rgb(207, 207, 207);
-}
-
 textarea {
   border: none;
   text-align: center;
@@ -76,6 +27,60 @@ textarea {
 ::placeholder {
   color: rgb(216, 216, 216);
   font-weight: 100;
+}
+
+
+.saved {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  height: 100%;
+  width: 230px;
+  background-color: rgb(55, 55, 56);
+}
+
+.add {
+  position: absolute;
+  left: 25px;
+  background-color: rgb(55, 55, 56);
+  text-align: center;
+  color: rgb(128, 128, 128);
+  border: none;
+  cursor: pointer;
+  font-weight: 100;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.add i {
+  font-size: 15px;
+}
+
+.original {
+  display: none;
+}
+
+.close {
+  color: rgb(216, 216, 216);
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 15px;
+  padding-top: 5px;
+}
+
+.sticker {
+  position: absolute;
+  left: 230px;
+  width: 200px;
+  min-height: 200px;
+  background: rgb(236, 129, 29);
+  cursor: move;
+  z-index: 1;
+  border-top: solid 1px rgb(207, 207, 207);
+  border-right: solid 1px rgb(207, 207, 207);
+  border-left: solid 1px rgb(207, 207, 207);
 }
 
 .info {
