@@ -1,5 +1,7 @@
 $(document).ready(function () {
   var originalEl = $('.original');
+  var draggableEl = $('.draggable-js')
+  var stickerFooterHeight = 25;
 
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
@@ -22,18 +24,20 @@ $(document).ready(function () {
     if (event) {
       event.stopPropagation();
     }
-    el.appendTo('body');
+    el.appendTo(draggableEl);
   }
 
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
 
     newSticker.removeClass('original');
-    newSticker.appendTo('body');
-    newSticker.draggable();
+    newSticker.appendTo(draggableEl);
+    newSticker.draggable({
+      containment: draggableEl
+    });
 
     newSticker.find('.close').on('click', function () {
-      var confirmationText = confirm('Do you really want to close?');
+      var confirmationText = confirm('Do you really want to delete?');
       if (confirmationText) {
         deleteSticker($(this).parent());
       }
@@ -46,18 +50,19 @@ $(document).ready(function () {
         $(this).focus();
       })
 
-    var bodyWidth = document.body.clientWidth
-    var bodyHeight = document.body.clientHeight;
-    var randPosX = Math.floor((Math.random() * bodyWidth));
-    var randPosY = Math.floor((Math.random() * bodyHeight));
+    var containerWidth = draggableEl.width();
+    var containerHeight = draggableEl.height();
+    var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
+    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height() - stickerFooterHeight));
+
 
     newSticker.on('dragstart focus', function (e) {
       setActiveSticker(e, newSticker);
     });
 
     newSticker.css({
-      'left': randPosX,
-      'top': randPosY
+      'left': randomPosLeft,
+      'top': randomPosTop
     });
   }
   cloneSticker();
