@@ -121,3 +121,31 @@ textarea {
   position: relative;
   flex-grow: 1;
 }
+@media only screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  } textarea {
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+    position: static;
+  }
+  .sidebar {
+    height: auto;
+    width: auto;
+  }
+  .sticker {
+    margin: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: auto;
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+  } .sticker:before {
+    width: calc(100% - 25px);
+  } .close {
+    position: absolute;
+    left: 0;
+  }
+}

@@ -6,6 +6,9 @@ $(document).ready(function () {
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
   }
+  // var screenSizeChecker = function () {
+
+  // }
 
   var autosizeInputField = function () {
     var el = $(this);
