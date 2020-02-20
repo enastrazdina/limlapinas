@@ -65,6 +65,7 @@ textarea {
   padding-top: 5px;
 }
 
+
 .sticker {
   position: absolute;
   left: 230px;
@@ -122,16 +123,13 @@ textarea {
   flex-grow: 1;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   body {
     flex-direction: column;
   }
 
   textarea {
-    text-align: center;
-    padding: 10px;
-    margin: auto;
-    position: static;
+    width: 100%;
   }
 
   .sidebar {
@@ -140,9 +138,7 @@ textarea {
   }
 
   .sticker {
-    margin: 10px;
-    margin-bottom: 40px;
-    text-align: center;
+    margin: 10px 10px 40px;
     width: auto;
     position: relative;
     left: auto !important;
@@ -151,10 +147,5 @@ textarea {
 
   .sticker:before {
     width: calc(100% - 25px);
-  }
-
-  .close {
-    position: absolute;
-    left: 0;
   }
 }
