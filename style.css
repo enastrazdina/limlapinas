@@ -43,7 +43,7 @@ textarea {
   color: rgb(128, 128, 128);
   cursor: pointer;
   font-weight: 100;
-  padding-top: 20px;
+  margin: 20px 10px;
   font-size: 20px;
   border: none;
 }
