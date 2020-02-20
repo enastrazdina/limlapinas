@@ -2,6 +2,10 @@ $(document).ready(function () {
   var originalEl = $('.original');
   var draggableEl = $('.draggable-js')
   var stickerFooterHeight = 25;
+  var mobileBreakpoint = 768;
+  var isMobile = function () {
+    return $(window).width() < mobileBreakpoint;
+  }
 
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
@@ -29,7 +33,6 @@ $(document).ready(function () {
 
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
-
     newSticker.removeClass('original');
     newSticker.appendTo(draggableEl);
     newSticker.draggable({
@@ -46,6 +49,9 @@ $(document).ready(function () {
     newSticker.find('textarea')
       .on('keydown', autosizeInputField)
       .on('mousedown', function () {
+        if (isMobile()) {
+          return;
+        }
         setActiveSticker(null, newSticker);
         $(this).focus();
       })
@@ -55,8 +61,10 @@ $(document).ready(function () {
     var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
     var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height() - stickerFooterHeight));
 
-
     newSticker.on('dragstart focus', function (e) {
+      if (isMobile()) {
+        return;
+      }
       setActiveSticker(e, newSticker);
     });
 
@@ -66,6 +74,5 @@ $(document).ready(function () {
     });
   }
   cloneSticker();
-
   $('.add').on('click', cloneSticker);
 });

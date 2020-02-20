@@ -19,7 +19,7 @@ textarea {
   color: rgb(55, 55, 56);
   resize: none;
   font-weight: 300;
-  width: 180px;
+  width: 100%;
   padding-left: 10px;
   padding-right: 10px;
   overflow: hidden;
@@ -43,7 +43,7 @@ textarea {
   color: rgb(128, 128, 128);
   cursor: pointer;
   font-weight: 100;
-  padding-top: 20px;
+  margin: 20px 10px;
   font-size: 20px;
   border: none;
 }
@@ -120,4 +120,27 @@ textarea {
   height: 100vh;
   position: relative;
   flex-grow: 1;
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    height: auto;
+    width: auto;
+  }
+
+  .sticker {
+    margin: 10px 10px 40px;
+    width: auto;
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .sticker:before {
+    width: calc(100% - 25px);
+  }
 }
