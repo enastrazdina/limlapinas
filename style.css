@@ -19,7 +19,7 @@ textarea {
   color: rgb(55, 55, 56);
   resize: none;
   font-weight: 300;
-  width: 180px;
+  width: 100%;
   padding-left: 10px;
   padding-right: 10px;
   overflow: hidden;
@@ -64,7 +64,6 @@ textarea {
   font-size: 15px;
   padding-top: 5px;
 }
-
 
 .sticker {
   position: absolute;
@@ -126,10 +125,6 @@ textarea {
 @media only screen and (max-width: 767px) {
   body {
     flex-direction: column;
-  }
-
-  textarea {
-    width: 100%;
   }
 
   .sidebar {
