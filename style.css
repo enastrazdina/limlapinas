@@ -19,7 +19,7 @@ textarea {
   color: rgb(55, 55, 56);
   resize: none;
   font-weight: 300;
-  width: 100%;
+  width: calc(100% - 1px);
   padding-left: 10px;
   padding-right: 10px;
   overflow: hidden;
@@ -67,14 +67,14 @@ textarea {
 
 .sticker {
   position: absolute;
+  flex-direction: column;
+  flex-grow: 1;
   left: 230px;
   width: 200px;
   min-height: 200px;
-  background: rgb(236, 129, 29);
   cursor: move;
   z-index: 1;
   border-top: solid 1px rgb(207, 207, 207);
-  border-right: solid 1px rgb(207, 207, 207);
   border-left: solid 1px rgb(207, 207, 207);
 }
 
@@ -86,33 +86,22 @@ textarea {
   color: rgb(128, 128, 127);
 }
 
-.sticker:before,
-.sticker:after {
-  content: "";
-  position: absolute;
-}
-
-.sticker::before {
-  top: 100%;
-  bottom: 0;
-  width: 175px;
-  height: 25px;
-  border-width: 25px 25px 0 0;
-  border-color: rgb(236, 129, 29);
+.sticker-body {
   background-color: rgb(236, 129, 29);
-  left: -1px;
-  border-bottom: solid 1px rgb(207, 207, 207);
-  border-left: solid 1px rgb(207, 207, 207);
+  min-height: 200px;
+  border-right: solid 1px rgb(207, 207, 207);
 }
 
-.sticker .footer {
+.sticker-body::after {
   position: absolute;
+  content: "";
   width: 0px;
-  top: 100%;
+  bottom: 0;
   right: 0;
   border-style: solid;
   border-width: 25px 25px 0 0;
   border-color: rgb(255, 94, 0) transparent transparent transparent;
+  background-color: transparent;
 }
 
 .sticker-container {
@@ -120,6 +109,13 @@ textarea {
   height: 100vh;
   position: relative;
   flex-grow: 1;
+}
+
+.footer {
+  background-color: rgb(236, 129, 29);
+  height: 25px;
+  width: 175px;
+  border-bottom: solid 1px rgb(207, 207, 207);
 }
 
 @media only screen and (max-width: 767px) {
@@ -133,14 +129,14 @@ textarea {
   }
 
   .sticker {
-    margin: 10px 10px 40px;
+    margin: 10px;
     width: auto;
     position: relative;
     left: auto !important;
     top: auto !important;
   }
 
-  .sticker:before {
+  .footer {
     width: calc(100% - 25px);
   }
 }
