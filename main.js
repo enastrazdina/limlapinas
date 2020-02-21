@@ -24,10 +24,7 @@ $(document).ready(function () {
     }, 0);
   }
 
-  var setActiveSticker = function (event, el) {
-    if (event) {
-      event.stopPropagation();
-    }
+  var setActiveSticker = function (el) {
     el.appendTo(draggableEl);
   }
 
@@ -42,7 +39,7 @@ $(document).ready(function () {
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to delete?');
       if (confirmationText) {
-        deleteSticker($(this).parent());
+        deleteSticker(newSticker);
       }
     });
 
@@ -52,7 +49,7 @@ $(document).ready(function () {
         if (isMobile()) {
           return;
         }
-        setActiveSticker(null, newSticker);
+        setActiveSticker(newSticker);
         $(this).focus();
       })
 
@@ -61,11 +58,11 @@ $(document).ready(function () {
     var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
     var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height() - stickerFooterHeight));
 
-    newSticker.on('dragstart focus', function (e) {
+    newSticker.on('dragstart focus click', function () {
       if (isMobile()) {
         return;
       }
-      setActiveSticker(e, newSticker);
+      setActiveSticker(newSticker);
     });
 
     newSticker.css({
@@ -73,6 +70,7 @@ $(document).ready(function () {
       'top': randomPosTop
     });
   }
+
   cloneSticker();
   $('.add').on('click', cloneSticker);
 });
