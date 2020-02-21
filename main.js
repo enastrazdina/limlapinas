@@ -1,7 +1,6 @@
 $(document).ready(function () {
   var originalEl = $('.original');
   var draggableEl = $('.draggable-js')
-  var stickerFooterHeight = 25;
   var mobileBreakpoint = 768;
   var isMobile = function () {
     return $(window).width() < mobileBreakpoint;
@@ -56,7 +55,7 @@ $(document).ready(function () {
     var containerWidth = draggableEl.width();
     var containerHeight = draggableEl.height();
     var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
-    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height() - stickerFooterHeight));
+    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
 
     newSticker.on('dragstart focus click', function () {
       if (isMobile()) {
