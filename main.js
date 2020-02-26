@@ -72,5 +72,4 @@ $(document).ready(function () {
 
   cloneSticker();
   $('.add').on('click', cloneSticker);
-  $('dark-mode').on('click', darkMode);
 });
