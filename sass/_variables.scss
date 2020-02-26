@@ -7,4 +7,15 @@ $themes: ('light': ('base-color': rgb(235, 235, 235),
     'accent-color': rgb(209, 209, 209),
     'border-color': rgb(53, 53, 53),
     'object-color': rgb(97, 60, 18),
-  ));
+  ),
+  'matrix': ('base-color': rgb(0, 0, 0),
+    'accent-color': rgb(60, 255, 0),
+    'border-color': rgb(116, 201, 90),
+    'object-color': rgb(41, 41, 41),
+  ),
+  'epilepsy': ('base-color': rgb(255, 0, 221),
+  'accent-color': rgb(0, 217, 255),
+  'border-color': rgb(255, 251, 0),
+  'object-color': rgb(123, 255, 0),
+)
+);
