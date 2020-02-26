@@ -22,19 +22,6 @@ $(document).ready(function () {
       });
     }, 0);
   }
-  
-  var darkMode = function () {
-    var sidebar =  $('.sidebar');
-     newSticker.css({
-       color: '#754313;'
-     });
-     draggable.css({
-       color: '#313131;'
-     });
-     sidebar.css({
-       color: '#8f8f8f;'
-     });
-   }
 
   var setActiveSticker = function (el) {
     el.appendTo(draggableEl);
