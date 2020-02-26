@@ -1,3 +1,5 @@
+@import 'variables';
+
 * {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   outline: none;
@@ -5,16 +7,59 @@
 }
 
 body {
-  background-color: $base-color;
   display: flex;
   margin: 0;
   padding: 0;
+
+  @each $theme,
+  $colors in $themes {
+    &.theme-#{$theme} {
+      background-color: map-get($colors, 'base-color');
+
+      button {
+        background-color: transparent;
+        color: map-get($colors, 'border-color');
+      }
+
+      .sidebar {
+        background-color: map-get($colors, 'accent-color');
+      }
+
+      textarea {
+        background-color: map-get($colors, 'object-color');
+        color: map-get($colors, 'accent-color');
+      }
+
+      .close {
+        color: map-get($colors, 'border-color');
+      }
+
+      .sticker-body {
+        background-color: map-get($colors, 'object-color');
+      }
+
+      .info {
+        background-color: map-get($colors, 'accent-color');
+        color: map-get($colors, 'border-color');
+      }
+
+      .footer {
+        background-color: map-get($colors, 'object-color');
+        border-bottom: map-get($colors, solid 1px 'border-color');
+      }
+
+      .sticker-container {
+        background-color: map-get($colors, 'base-color');
+      }
+    }
+  }
+
 }
 
 textarea {
   border: none;
   text-align: center;
-  background: $sticker-color;
+  background: rgb(236, 129, 29);
   font-size: 18px;
   color: rgb(55, 55, 56);
   resize: none;
@@ -34,11 +79,11 @@ textarea {
   text-align: center;
   height: 100vh;
   width: 230px;
-  background-color: $sidebar-color;
+  background-color: #373738;
 }
 
-.add, .dark-mode {
-  background-color: $sidebar-color;
+.add {
+  background-color: rgb(55, 55, 56);
   text-align: center;
   color: rgb(128, 128, 128);
   cursor: pointer;
@@ -46,12 +91,11 @@ textarea {
   margin: 20px 10px;
   font-size: 20px;
   border: none;
-
-  .add i, .dark-mode i {
-    font-size: 15px;
-  }
 }
 
+.add i {
+  font-size: 15px;
+}
 
 .original {
   display: none;
@@ -75,8 +119,8 @@ textarea {
   min-height: 200px;
   cursor: move;
   z-index: 1;
-  border-top: solid 1px rgb(207, 207, 207);
-  border-left: solid 1px rgb(207, 207, 207);
+  border-top: solid 1px rgb(216, 216, 216);
+  border-left: solid 1px rgb(216, 216, 216);
 }
 
 .info {
@@ -88,11 +132,11 @@ textarea {
 }
 
 .sticker-body {
-  background-color: $sticker-color;
+  background-color: rgb(236, 129, 29);
   min-height: 200px;
   border-right: solid 1px rgb(207, 207, 207);
 
-  ::after {
+  &::after {
     position: absolute;
     content: "";
     width: 0px;
@@ -100,19 +144,19 @@ textarea {
     right: 0;
     border-style: solid;
     border-width: 25px 25px 0 0;
-    border-color: $sticker-color transparent transparent transparent;
+    border-color: rgb(211, 67, 23) transparent transparent transparent;
   }
 }
 
 .sticker-container {
-  background-color: $base-color;
+  background-color: rgb(235, 235, 235);
   height: 100vh;
   position: relative;
   flex-grow: 1;
 }
 
 .footer {
-  background-color: $sticker-color;
+  background-color: rgb(236, 129, 29);
   height: 25px;
   width: 175px;
   border-bottom: solid 1px rgb(207, 207, 207);
