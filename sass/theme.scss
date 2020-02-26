@@ -59,9 +59,7 @@ body {
 textarea {
   border: none;
   text-align: center;
-  background: rgb(236, 129, 29);
   font-size: 18px;
-  color: rgb(55, 55, 56);
   resize: none;
   font-weight: 300;
   width: 100%;
@@ -71,7 +69,6 @@ textarea {
 }
 
 ::placeholder {
-  color: rgb(216, 216, 216);
   font-weight: 100;
 }
 
@@ -79,13 +76,10 @@ textarea {
   text-align: center;
   height: 100vh;
   width: 230px;
-  background-color: #373738;
 }
 
 .add {
-  background-color: rgb(55, 55, 56);
   text-align: center;
-  color: rgb(128, 128, 128);
   cursor: pointer;
   font-weight: 100;
   margin: 20px 10px;
@@ -102,7 +96,6 @@ textarea {
 }
 
 .close {
-  color: rgb(216, 216, 216);
   border: none;
   background-color: inherit;
   cursor: pointer;
@@ -119,22 +112,16 @@ textarea {
   min-height: 200px;
   cursor: move;
   z-index: 1;
-  border-top: solid 1px rgb(216, 216, 216);
-  border-left: solid 1px rgb(216, 216, 216);
 }
 
 .info {
   text-align: center;
   font-size: 15px;
   font-weight: 100;
-  background-color: rgb(55, 55, 56);
-  color: rgb(128, 128, 127);
 }
 
 .sticker-body {
-  background-color: rgb(236, 129, 29);
   min-height: 200px;
-  border-right: solid 1px rgb(207, 207, 207);
 
   &::after {
     position: absolute;
@@ -149,17 +136,14 @@ textarea {
 }
 
 .sticker-container {
-  background-color: rgb(235, 235, 235);
   height: 100vh;
   position: relative;
   flex-grow: 1;
 }
 
 .footer {
-  background-color: rgb(236, 129, 29);
   height: 25px;
   width: 175px;
-  border-bottom: solid 1px rgb(207, 207, 207);
 }
 
 @media only screen and (max-width: 767px) {
