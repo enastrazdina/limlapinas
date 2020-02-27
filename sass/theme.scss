@@ -36,6 +36,9 @@ body {
 
       .sticker-body {
         background-color: map-get($colors, 'object-color');
+        &::after{
+          border-top-color: map-get($colors, 'base-color');
+        } 
       }
 
       .info {
@@ -139,7 +142,7 @@ textarea {
     right: 0;
     border-style: solid;
     border-width: 25px 25px 0 0;
-    border-color: rgb(211, 67, 23) transparent transparent transparent;
+    border-color: transparent;
   }
 }
 
