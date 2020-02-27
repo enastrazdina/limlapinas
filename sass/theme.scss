@@ -25,20 +25,17 @@ body {
         background-color: map-get($colors, 'accent-color');
       }
 
-      textarea {
-        background-color: map-get($colors, 'object-color');
-        color: map-get($colors, 'accent-color');
-      }
-
       .close {
         color: map-get($colors, 'border-color');
       }
 
       .sticker-body {
         background-color: map-get($colors, 'object-color');
-        &::after{
-          border-top-color: map-get($colors, 'border-color');
-        } 
+        border-right-color: map-get($colors, 'accent-color');
+
+        &::after {
+          border-top-color: darken(map-get($colors, 'object-color'), 30%);
+        }
       }
 
       .info {
@@ -48,7 +45,7 @@ body {
 
       .footer {
         background-color: map-get($colors, 'object-color');
-        border-bottom: map-get($colors, solid 1px 'border-color');
+        border-bottom-color: map-get($colors, 'accent-color');
       }
 
       .sticker-container {
@@ -63,11 +60,17 @@ body {
       a {
         color: map-get($colors, 'border-color');
       }
+
+      .sticker {
+        border-top-color: map-get($colors, 'accent-color');
+        border-left-color: map-get($colors, 'accent-color');
+      }
     }
   }
 }
 
 textarea {
+  background-color: transparent;
   border: none;
   text-align: center;
   font-size: 18px;
@@ -80,6 +83,24 @@ textarea {
 }
 
 ::placeholder {
+  font-weight: 100;
+}
+
+details {
+  margin: 20px;
+  padding: 5px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+summary {
+  font-weight: 100;
+}
+
+select {
+  border: none;
+  margin: 10px;
+  font-size: 15px;
   font-weight: 100;
 }
 
@@ -123,6 +144,8 @@ textarea {
   min-height: 200px;
   cursor: move;
   z-index: 1;
+  border-top: solid 1px;
+  border-left: solid 1px;
 }
 
 .info {
@@ -133,6 +156,7 @@ textarea {
 
 .sticker-body {
   min-height: 200px;
+  border-right: solid 1px;
 
   &::after {
     position: absolute;
@@ -155,6 +179,7 @@ textarea {
 .footer {
   height: 25px;
   width: 175px;
+  border-bottom: solid 1px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -178,44 +203,4 @@ textarea {
   .footer {
     width: calc(100% - 25px);
   }
-}
-
-details {
-  margin: 20px;
-  padding: 5px;
-  font-weight: 200;
-}
-
-summary {
-  font-weight: 100;
-}
-
-.dropbtn {
-  margin: 15px;
-  font-weight: 100;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  min-width: 160px;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  padding: 6px 8px;
-  text-decoration: none;
-  display: block;
-  font-weight: 100;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
