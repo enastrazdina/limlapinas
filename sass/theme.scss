@@ -21,6 +21,10 @@ body {
         color: map-get($colors, 'border-color');
       }
 
+      textarea {
+        color: map-get($colors, 'accent-color');
+      }
+
       details,
       summary {
         color: map-get($colors, 'border-color');
@@ -46,6 +50,8 @@ body {
       .sticker-body {
         background-color: map-get($colors, 'object-color');
         border-right-color: map-get($colors, 'accent-color');
+        color: map-get($colors, 'accent-color');
+
 
         &::after {
           border-top-color: darken(map-get($colors, 'object-color'), 10%);
@@ -81,10 +87,18 @@ textarea {
   font-weight: 100;
 }
 
-details,
+details {
+  margin-top: auto;
+}
+
 summary {
   padding: 5px;
   font-weight: 200;
+  text-align: left;
+
+}
+
+summary {
   cursor: pointer;
 }
 
@@ -95,11 +109,13 @@ select {
 }
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
   text-align: center;
   height: 100vh;
   width: 230px;
   font-size: 15px;
-  padding: 20px;
 }
 
 .add {
