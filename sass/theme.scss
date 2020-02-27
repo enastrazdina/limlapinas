@@ -21,37 +21,6 @@ body {
         color: map-get($colors, 'border-color');
       }
 
-      .sidebar {
-        background-color: map-get($colors, 'accent-color');
-      }
-
-      .close {
-        color: map-get($colors, 'border-color');
-      }
-
-      .sticker-body {
-        background-color: map-get($colors, 'object-color');
-        border-right-color: map-get($colors, 'accent-color');
-
-        &::after {
-          border-top-color: darken(map-get($colors, 'object-color'), 30%);
-        }
-      }
-
-      .info {
-        background-color: map-get($colors, 'accent-color');
-        color: map-get($colors, 'border-color');
-      }
-
-      .footer {
-        background-color: map-get($colors, 'object-color');
-        border-bottom-color: map-get($colors, 'accent-color');
-      }
-
-      .sticker-container {
-        background-color: map-get($colors, 'base-color');
-      }
-
       details,
       summary {
         color: map-get($colors, 'border-color');
@@ -61,9 +30,35 @@ body {
         color: map-get($colors, 'border-color');
       }
 
+      .sidebar {
+        background-color: map-get($colors, 'accent-color');
+      }
+
       .sticker {
         border-top-color: map-get($colors, 'accent-color');
         border-left-color: map-get($colors, 'accent-color');
+      }
+
+      .sticker-container {
+        background-color: map-get($colors, 'base-color');
+      }
+
+      .sticker-body {
+        background-color: map-get($colors, 'object-color');
+        border-right-color: map-get($colors, 'accent-color');
+
+        &::after {
+          border-top-color: darken(map-get($colors, 'object-color'), 10%);
+        }
+      }
+
+      .close {
+        color: map-get($colors, 'border-color');
+      }
+
+      .footer {
+        background-color: map-get($colors, 'object-color');
+        border-bottom-color: map-get($colors, 'accent-color');
       }
     }
   }
@@ -86,28 +81,25 @@ textarea {
   font-weight: 100;
 }
 
-details {
-  margin: 20px;
+details,
+summary {
   padding: 5px;
   font-weight: 200;
   cursor: pointer;
 }
 
-summary {
-  font-weight: 100;
-}
-
 select {
   border: none;
-  margin: 10px;
-  font-size: 15px;
   font-weight: 100;
+
 }
 
 .sidebar {
   text-align: center;
   height: 100vh;
   width: 230px;
+  font-size: 15px;
+  padding: 20px;
 }
 
 .add {
@@ -117,22 +109,10 @@ select {
   margin: 20px 10px;
   font-size: 20px;
   border: none;
-}
 
-.add i {
-  font-size: 15px;
-}
-
-.original {
-  display: none;
-}
-
-.close {
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
-  font-size: 15px;
-  padding-top: 5px;
+  i {
+    font-size: 15px;
+  }
 }
 
 .sticker {
@@ -148,10 +128,14 @@ select {
   border-left: solid 1px;
 }
 
-.info {
-  text-align: center;
-  font-size: 15px;
-  font-weight: 100;
+.sticker-container {
+  height: 100vh;
+  position: relative;
+  flex-grow: 1;
+}
+
+.original {
+  display: none;
 }
 
 .sticker-body {
@@ -170,10 +154,12 @@ select {
   }
 }
 
-.sticker-container {
-  height: 100vh;
-  position: relative;
-  flex-grow: 1;
+.close {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 15px;
+  padding-top: 5px;
 }
 
 .footer {
