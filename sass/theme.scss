@@ -51,9 +51,17 @@ body {
       .sticker-container {
         background-color: map-get($colors, 'base-color');
       }
+
+      details,
+      summary {
+        color: map-get($colors, 'border-color');
+      }
+
+      a {
+        color: map-get($colors, 'border-color');
+      }
     }
   }
-
 }
 
 textarea {
@@ -167,4 +175,44 @@ textarea {
   .footer {
     width: calc(100% - 25px);
   }
+}
+
+details {
+  margin: 20px;
+  padding: 5px;
+  font-weight: 200;
+}
+
+summary {
+  font-weight: 100;
+}
+
+.dropbtn {
+  margin: 15px;
+  font-weight: 100;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 6px 8px;
+  text-decoration: none;
+  display: block;
+  font-weight: 100;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
