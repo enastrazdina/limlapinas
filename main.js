@@ -23,6 +23,18 @@ $(document).ready(function () {
     }, 0);
   }
 
+  $('select').on('change', function () {
+    if ($(this).val() == 'epilepsy') {
+      $('body').removeClass().addClass('theme-epilepsy');
+    } else if ($(this).val() == 'matrix') {
+      $('body').removeClass().addClass('theme-matrix');
+    } else if ($(this).val() == 'dark') {
+      $('body').removeClass().addClass('theme-dark')
+    } else if ($(this).val() == 'light') {
+      $('body').removeClass().addClass('theme-light');
+    }
+  });
+
   var setActiveSticker = function (el) {
     el.appendTo(draggableEl);
   }
