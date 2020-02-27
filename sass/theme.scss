@@ -37,7 +37,7 @@ body {
       .sticker-body {
         background-color: map-get($colors, 'object-color');
         &::after{
-          border-top-color: map-get($colors, 'base-color');
+          border-top-color: map-get($colors, 'border-color');
         } 
       }
 
