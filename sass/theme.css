@@ -1,0 +1,370 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+body.theme-light {
+  background-color: #ebebeb;
+}
+
+body.theme-light button {
+  background-color: transparent;
+  color: #d8d8d8;
+}
+
+body.theme-light details,
+body.theme-light summary {
+  color: #d8d8d8;
+}
+
+body.theme-light a {
+  color: #d8d8d8;
+}
+
+body.theme-light .sidebar {
+  background-color: #373738;
+}
+
+body.theme-light .sticker {
+  border-top-color: #373738;
+  border-left-color: #373738;
+}
+
+body.theme-light .sticker-container {
+  background-color: #ebebeb;
+}
+
+body.theme-light .sticker-body {
+  background-color: #ec811d;
+  border-right-color: #373738;
+}
+
+body.theme-light .sticker-body::after {
+  border-top-color: #c56811;
+}
+
+body.theme-light .close {
+  color: #d8d8d8;
+}
+
+body.theme-light .footer {
+  background-color: #ec811d;
+  border-bottom-color: #373738;
+}
+
+body.theme-dark {
+  background-color: #383838;
+}
+
+body.theme-dark button {
+  background-color: transparent;
+  color: #353535;
+}
+
+body.theme-dark details,
+body.theme-dark summary {
+  color: #353535;
+}
+
+body.theme-dark a {
+  color: #353535;
+}
+
+body.theme-dark .sidebar {
+  background-color: #d1d1d1;
+}
+
+body.theme-dark .sticker {
+  border-top-color: #d1d1d1;
+  border-left-color: #d1d1d1;
+}
+
+body.theme-dark .sticker-container {
+  background-color: #383838;
+}
+
+body.theme-dark .sticker-body {
+  background-color: #5a524a;
+  border-right-color: #d1d1d1;
+}
+
+body.theme-dark .sticker-body::after {
+  border-top-color: #3e3933;
+}
+
+body.theme-dark .close {
+  color: #353535;
+}
+
+body.theme-dark .footer {
+  background-color: #5a524a;
+  border-bottom-color: #d1d1d1;
+}
+
+body.theme-matrix {
+  background-color: black;
+}
+
+body.theme-matrix button {
+  background-color: transparent;
+  color: #74c95a;
+}
+
+body.theme-matrix details,
+body.theme-matrix summary {
+  color: #74c95a;
+}
+
+body.theme-matrix a {
+  color: #74c95a;
+}
+
+body.theme-matrix .sidebar {
+  background-color: #3cff00;
+}
+
+body.theme-matrix .sticker {
+  border-top-color: #3cff00;
+  border-left-color: #3cff00;
+}
+
+body.theme-matrix .sticker-container {
+  background-color: black;
+}
+
+body.theme-matrix .sticker-body {
+  background-color: #494949;
+  border-right-color: #3cff00;
+}
+
+body.theme-matrix .sticker-body::after {
+  border-top-color: #303030;
+}
+
+body.theme-matrix .close {
+  color: #74c95a;
+}
+
+body.theme-matrix .footer {
+  background-color: #494949;
+  border-bottom-color: #3cff00;
+}
+
+body.theme-epilepsy {
+  background-color: #ff39c4;
+}
+
+body.theme-epilepsy button {
+  background-color: transparent;
+  color: #fffb00;
+}
+
+body.theme-epilepsy details,
+body.theme-epilepsy summary {
+  color: #fffb00;
+}
+
+body.theme-epilepsy a {
+  color: #fffb00;
+}
+
+body.theme-epilepsy .sidebar {
+  background-color: #00d9ff;
+}
+
+body.theme-epilepsy .sticker {
+  border-top-color: #00d9ff;
+  border-left-color: #00d9ff;
+}
+
+body.theme-epilepsy .sticker-container {
+  background-color: #ff39c4;
+}
+
+body.theme-epilepsy .sticker-body {
+  background-color: #7bff00;
+  border-right-color: #00d9ff;
+}
+
+body.theme-epilepsy .sticker-body::after {
+  border-top-color: #62cc00;
+}
+
+body.theme-epilepsy .close {
+  color: #fffb00;
+}
+
+body.theme-epilepsy .footer {
+  background-color: #7bff00;
+  border-bottom-color: #00d9ff;
+}
+
+textarea {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  resize: none;
+  font-weight: 300;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+::-webkit-input-placeholder {
+  font-weight: 100;
+}
+
+:-ms-input-placeholder {
+  font-weight: 100;
+}
+
+::-ms-input-placeholder {
+  font-weight: 100;
+}
+
+::placeholder {
+  font-weight: 100;
+}
+
+details {
+  margin-top: auto;
+}
+
+summary {
+  padding: 5px;
+  font-weight: 200;
+  text-align: left;
+}
+
+summary {
+  cursor: pointer;
+}
+
+select {
+  border: none;
+  font-weight: 100;
+}
+
+.sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px;
+  text-align: center;
+  height: 100vh;
+  width: 230px;
+  font-size: 15px;
+}
+
+.add {
+  text-align: center;
+  cursor: pointer;
+  font-weight: 100;
+  margin: 20px 10px;
+  font-size: 20px;
+  border: none;
+}
+
+.add i {
+  font-size: 15px;
+}
+
+.sticker {
+  position: absolute;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  left: 230px;
+  width: 200px;
+  min-height: 200px;
+  cursor: move;
+  z-index: 1;
+  border-top: solid 1px;
+  border-left: solid 1px;
+}
+
+.sticker-container {
+  height: 100vh;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.original {
+  display: none;
+}
+
+.sticker-body {
+  min-height: 200px;
+  border-right: solid 1px;
+}
+
+.sticker-body::after {
+  position: absolute;
+  content: "";
+  width: 0px;
+  bottom: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 25px 25px 0 0;
+  border-color: transparent;
+}
+
+.close {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 15px;
+  padding-top: 5px;
+}
+
+.footer {
+  height: 25px;
+  width: 175px;
+  border-bottom: solid 1px;
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .sidebar {
+    height: auto;
+    width: auto;
+  }
+  .sticker {
+    margin: 10px;
+    width: auto;
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+  }
+  .footer {
+    width: calc(100% - 25px);
+  }
+}
+/*# sourceMappingURL=theme.css.map */
