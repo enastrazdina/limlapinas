@@ -22,18 +22,12 @@ $(document).ready(function () {
       });
     }, 0);
   }
+  var changeThemes = function () {
+    var x = $('select').val();
+    $('body').attr('class', 'theme-' + x);
+  }
 
-  $('select').on('change', function () {
-    if ($(this).val() == 'epilepsy') {
-      $('body').removeClass().addClass('theme-epilepsy');
-    } else if ($(this).val() == 'matrix') {
-      $('body').removeClass().addClass('theme-matrix');
-    } else if ($(this).val() == 'dark') {
-      $('body').removeClass().addClass('theme-dark')
-    } else if ($(this).val() == 'light') {
-      $('body').removeClass().addClass('theme-light');
-    }
-  });
+  $('select').on('change', changeThemes);
 
   var setActiveSticker = function (el) {
     el.appendTo(draggableEl);
