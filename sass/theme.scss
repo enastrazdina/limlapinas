@@ -86,6 +86,10 @@ textarea {
   font-weight: 100;
 }
 
+button {
+  padding: 0px;
+}
+
 details {
   margin-top: auto;
   font-weight: 200;
@@ -115,7 +119,7 @@ select {
 }
 
 .add {
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   font-weight: 100;
   font-size: 20px;
@@ -188,6 +192,14 @@ select {
   .sidebar {
     height: auto;
     width: auto;
+  }
+
+  .add {
+    text-align: left;
+
+    i {
+      padding-left: 0px;
+    }
   }
 
   .sticker {
