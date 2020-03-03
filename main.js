@@ -22,12 +22,6 @@ $(document).ready(function () {
       });
     }, 0);
   }
-  var changeThemes = function () {
-    var x = $('select').val();
-    $('body').attr('class', 'theme-' + x);
-  }
-
-  $('select').on('change', changeThemes);
 
   var setActiveSticker = function (el) {
     el.appendTo(draggableEl);
@@ -78,4 +72,14 @@ $(document).ready(function () {
 
   cloneSticker();
   $('.add').on('click', cloneSticker);
+
+  $('.select-theme').on('change', function () {
+    var newTheme = 'theme-' + $(this).val();
+    classList = $('body').attr('class').split(' ');
+    classList = classList.filter(function (className) {
+      return !className.startsWith('theme-')
+    });
+    classList.push(newTheme);
+    $('body').attr('class', classList.join(' '));
+  });
 });

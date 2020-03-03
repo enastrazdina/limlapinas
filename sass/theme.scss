@@ -52,7 +52,6 @@ body {
         border-right-color: map-get($colors, 'accent-color');
         color: map-get($colors, 'accent-color');
 
-
         &::after {
           border-top-color: darken(map-get($colors, 'object-color'), 10%);
         }
@@ -89,29 +88,26 @@ textarea {
 
 details {
   margin-top: auto;
-}
-
-summary {
-  padding: 5px;
   font-weight: 200;
   text-align: left;
-
 }
 
 summary {
+  text-align: left;
   cursor: pointer;
+  font-weight: 400;
+  margin-bottom: 5px;
 }
 
 select {
   border: none;
   font-weight: 100;
-
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 20px;
   text-align: center;
   height: 100vh;
   width: 230px;
@@ -122,7 +118,6 @@ select {
   text-align: center;
   cursor: pointer;
   font-weight: 100;
-  margin: 20px 10px;
   font-size: 20px;
   border: none;
 
