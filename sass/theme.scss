@@ -184,6 +184,10 @@ select {
     flex-direction: column;
   }
 
+  summary {
+    margin-top: 15px;
+  }
+
   .sidebar {
     height: auto;
     width: auto;
