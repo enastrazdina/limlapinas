@@ -87,7 +87,7 @@ textarea {
 }
 
 button {
-  padding: 0px;
+  padding: 0;
 }
 
 details {
@@ -112,7 +112,6 @@ select {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  text-align: center;
   height: 100vh;
   width: 230px;
   font-size: 15px;
@@ -175,7 +174,7 @@ select {
   background-color: inherit;
   cursor: pointer;
   font-size: 15px;
-  padding: 5px 5px;
+  padding: 1px 5px;
 }
 
 .footer {
@@ -192,14 +191,6 @@ select {
   .sidebar {
     height: auto;
     width: auto;
-  }
-
-  .add {
-    text-align: left;
-
-    i {
-      padding-left: 0px;
-    }
   }
 
   .sticker {
