@@ -75,7 +75,7 @@ $(document).ready(function () {
 
   $('.select-theme').on('change', function () {
     var newTheme = 'theme-' + $(this).val();
-    classList = $('body').attr('class').split(' ');
+    var classList = $('body').attr('class').split(' ');
     classList = classList.filter(function (className) {
       return !className.startsWith('theme-')
     });
