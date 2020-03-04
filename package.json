@@ -1,0 +1,22 @@
+{
+  "name": "stickers",
+  "version": "1.0.0",
+  "description": "making my own board for stickers and reminders!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enastrazdina/limlapinas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enastrazdina/limlapinas/issues"
+  },
+  "homepage": "https://github.com/enastrazdina/limlapinas#readme",
+  "devDependencies": {
+    "sass": "^1.25.0"
+  }
+}
