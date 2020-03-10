@@ -72,7 +72,6 @@ $(document).ready(function () {
 
   cloneSticker();
   $('.add').on('click', cloneSticker);
-
   $('.select-theme').on('change', function () {
     var newTheme = 'theme-' + $(this).val();
     var classList = $('body').attr('class').split(' ');
@@ -81,5 +80,6 @@ $(document).ready(function () {
     });
     classList.push(newTheme);
     $('body').attr('class', classList.join(' '));
+    config.set('theme', newTheme);
   });
 });
