@@ -1,13 +1,14 @@
-
 var config = {
     defaults: {
         theme: 'light'
     },
     getConfig: function() {
-        return {defaults};
+        return this.defaults;
     }, 
-    setConfig: function() {
-
+    setConfig(key, value) {
+        var newDataObject = Object.assign({}, {}, {key: value});
+        var stringObject = JSON.stringify(newDataObject);
+        localStorage.setItem('config', stringObject);
     },
 };
-console.log(config.getConfig());
+
