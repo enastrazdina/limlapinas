@@ -3,16 +3,19 @@ var config = {
     theme: 'light',
     lang: 'en'
   },
+  getUserConfig: function(){
+    var changedUserSettingConfig = localStorage.getItem('config') || '{}';
+    var changedUserSettingDataToObject = JSON.parse(changedUserSettingConfig);
+  },
+
   get: function () {    
-    var changedData = localStorage.getItem('config') || '{}';
-    var changedDataToObject = JSON.parse(changedData);
-    var mergedObject = Object.assign({}, this.defaults, changedDataToObject) ;
+    this.getUserConfig();
+    var mergedObject = Object.assign({}, this.defaults, changedUserSettingDataToObject) ;
     return mergedObject;
   },
   set: function (key, value) {
-    var currentData = localStorage.getItem('config') || '{}';
-    var dataStringToObject = JSON.parse(currentData);
-    var newDataObject = Object.assign({}, dataStringToObject, {[key]: value});
+    this.getUserConfig();
+    var newDataObject = Object.assign({}, changedUserSettingDataToObject, {[key]: value});
     localStorage.setItem('config', JSON.stringify(newDataObject));
   },
 };
