@@ -84,7 +84,7 @@ $(document).ready(function () {
     classList.push(newTheme);
     $('body').attr('class', classList.join(' '));
     config.set('theme', selectedValue);
-  });
+   });
 
     $('.select-language').on('change', function() {
       selectedValue =  $(this).val();
@@ -95,10 +95,8 @@ $(document).ready(function () {
     });
     langList.push(newLang);
     $('body').attr('class', langList.join(' '));
-
     config.set('lang', selectedValue);
     
-
   });
 });
 
