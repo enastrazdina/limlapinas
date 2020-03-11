@@ -69,8 +69,6 @@ $(document).ready(function () {
       'top': randomPosTop
     });
   }
-// sadalīt failos stickeri un settingi // 
-
 
   cloneSticker();
   $('.add').on('click', cloneSticker);
@@ -84,19 +82,21 @@ $(document).ready(function () {
     classList.push(newTheme);
     $('body').attr('class', classList.join(' '));
     config.set('theme', selectedValue);
+    config.get();
    });
 
     $('.select-language').on('change', function() {
       selectedValue =  $(this).val();
-    var newLang = 'lang-' + selectedValue;
-    var langList = $('body').attr('class').split(' ');
-    langList = langList.filter(function(className) {
+      var newLang = 'lang-' + selectedValue;
+      var langList = $('body').attr('class').split(' ');
+      langList = langList.filter(function(className) {
       return !className.startsWith('lang-')
     });
     langList.push(newLang);
     $('body').attr('class', langList.join(' '));
     config.set('lang', selectedValue);
-    
+    config.get();
+
   });
 });
 
