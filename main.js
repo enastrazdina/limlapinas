@@ -69,17 +69,36 @@ $(document).ready(function () {
       'top': randomPosTop
     });
   }
+// sadalīt failos stickeri un settingi // 
+
 
   cloneSticker();
   $('.add').on('click', cloneSticker);
   $('.select-theme').on('change', function () {
-    var newTheme = 'theme-' + $(this).val();
+    var selectedValue = $(this).val();
+    var newTheme = 'theme-' + selectedValue;
     var classList = $('body').attr('class').split(' ');
     classList = classList.filter(function (className) {
       return !className.startsWith('theme-')
     });
     classList.push(newTheme);
     $('body').attr('class', classList.join(' '));
-    config.set('theme', newTheme);
+    config.set('theme', selectedValue);
+  });
+
+    $('.select-language').on('change', function() {
+      selectedValue =  $(this).val();
+    var newLang = 'lang-' + selectedValue;
+    var langList = $('body').attr('class').split(' ');
+    langList = langList.filter(function(className) {
+      return !className.startsWith('lang-')
+    });
+    langList.push(newLang);
+    $('body').attr('class', langList.join(' '));
+
+    config.set('lang', selectedValue);
+    
+
   });
 });
+
