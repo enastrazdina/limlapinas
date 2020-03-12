@@ -4,18 +4,17 @@ var config = {
     lang: 'en'
   },
   getUserConfig: function(){
-    var changedUserSettingConfig = localStorage.getItem('config') || '{}';
-    var changedUserSettingDataToObject = JSON.parse(changedUserSettingConfig);
+    var userConfig = localStorage.getItem('config') || '{}';
+    return JSON.parse(userConfig);
   },
 
-  get: function () {    
-    this.getUserConfig();
-    var mergedObject = Object.assign({}, this.defaults, changedUserSettingDataToObject) ;
-    return mergedObject;
+  get: function () {  
+    return Object.assign({}, this.defaults, this.getUserConfig());
   },
   set: function (key, value) {
-    this.getUserConfig();
-    var newDataObject = Object.assign({}, changedUserSettingDataToObject, {[key]: value});
-    localStorage.setItem('config', JSON.stringify(newDataObject));
+    var userConfig = this.getUserConfig();
+    var newUserConfig = Object.assign({}, userConfig, {[key]: value});
+    localStorage.setItem('config', JSON.stringify(newUserConfig));
+    return newUserConfig;
   },
 };

@@ -16,7 +16,6 @@ $(document).ready(function () {
       el.css({
         height: 'auto',
       });
-
       el.css({
         height: el[0].scrollHeight
       });
