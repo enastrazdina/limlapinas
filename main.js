@@ -10,7 +10,7 @@ $(document).ready(function () {
 
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
-  }
+  };
 
   var autosizeInputField = function () {
     var el = $(this);
@@ -22,18 +22,29 @@ $(document).ready(function () {
         height: el[0].scrollHeight
       });
     }, 0);
-  }
+  };
 
   var onAppLoad = function () {
     var appConfig = config.get();
     setTheme(appConfig.theme);
     selectThemeEl.val(appConfig.theme);
     selectLangEl.val(appConfig.lang);
-  }
+  };
+
+  var setTheme = function (theme) {
+    var newTheme = 'theme-' + theme;
+    var classList = $('body').attr('class').split(' ');
+
+    classList = classList.filter(function (className) {
+      return !className.startsWith('theme-')
+    });
+    classList.push(newTheme);
+    $('body').attr('class', classList.join(' '));
+  };
 
   var setActiveSticker = function (el) {
     el.appendTo(draggableEl);
-  }
+  };
 
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
@@ -76,20 +87,9 @@ $(document).ready(function () {
       'left': randomPosLeft,
       'top': randomPosTop
     });
-  }
+  };
 
   $('.add').on('click', cloneSticker);
-
-  var setTheme = function (theme) {
-    var newTheme = 'theme-' + theme;
-    var classList = $('body').attr('class').split(' ');
-
-    classList = classList.filter(function (className) {
-      return !className.startsWith('theme-')
-    });
-    classList.push(newTheme);
-    $('body').attr('class', classList.join(' '));
-  }
 
   selectThemeEl.on('change', function () {
     theme = $(this).val();

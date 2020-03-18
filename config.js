@@ -20,4 +20,4 @@ var config = {
     localStorage.setItem('config', JSON.stringify(newUserConfig));
     return newUserConfig;
   },
-};  
+};
