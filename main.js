@@ -1,6 +1,8 @@
 $(document).ready(function () {
   var originalEl = $('.original');
   var draggableEl = $('.draggable-js')
+  var selectThemeEl = $('.select-theme');
+  var selectLangEl = $('.select-lang');
   var mobileBreakpoint = 768;
   var isMobile = function () {
     return $(window).width() < mobileBreakpoint;
@@ -20,6 +22,13 @@ $(document).ready(function () {
         height: el[0].scrollHeight
       });
     }, 0);
+  }
+
+  var onAppLoad = function () {
+    var appConfig = config.get();
+    setTheme(appConfig.theme);
+    selectThemeEl.val(appConfig.theme);
+    selectLangEl.val(appConfig.lang);
   }
 
   var setActiveSticker = function (el) {
@@ -68,11 +77,10 @@ $(document).ready(function () {
       'top': randomPosTop
     });
   }
-  cloneSticker();
 
   $('.add').on('click', cloneSticker);
 
-  var setTheme = function(theme) {
+  var setTheme = function (theme) {
     var newTheme = 'theme-' + theme;
     var classList = $('body').attr('class').split(' ');
 
@@ -82,23 +90,18 @@ $(document).ready(function () {
     classList.push(newTheme);
     $('body').attr('class', classList.join(' '));
   }
-  
-  $('.select-theme').on('change', function () {
-    config.get();
-    config.set('theme', theme);
+
+  selectThemeEl.on('change', function () {
+    theme = $(this).val();
     setTheme(theme);
+    config.set('theme', theme);
   });
 
-  $('.select-language').on('change', function () {
-    selectedValue = $(this).val();
-    config.get();
-    config.getUserConfig();
-    config.set('lang', selectedValue);
+  selectLangEl.on('change', function () {
+    var lang = $(this).val();
+    config.set('lang', lang);
   });
-  
-  onAppLoad = function() {  
-    var appConfig = config.get();
-    var theme = appConfig.theme;
-    setTheme(theme);
-}
+
+  onAppLoad();
+  cloneSticker();
 });
