@@ -68,34 +68,37 @@ $(document).ready(function () {
       'top': randomPosTop
     });
   }
-
   cloneSticker();
+
   $('.add').on('click', cloneSticker);
-  $('.select-theme').on('change', function () {
-    var selectedValue = $(this).val();
-    var newTheme = 'theme-' + selectedValue;
+
+  var setTheme = function(theme) {
+    var newTheme = 'theme-' + theme;
     var classList = $('body').attr('class').split(' ');
+
     classList = classList.filter(function (className) {
       return !className.startsWith('theme-')
     });
     classList.push(newTheme);
     $('body').attr('class', classList.join(' '));
-    config.set('theme', selectedValue);
+  }
+  
+  $('.select-theme').on('change', function () {
     config.get();
-   });
-
-    $('.select-language').on('change', function() {
-      selectedValue =  $(this).val();
-      var newLang = 'lang-' + selectedValue;
-      var langList = $('body').attr('class').split(' ');
-      langList = langList.filter(function(className) {
-      return !className.startsWith('lang-')
-    });
-    langList.push(newLang);
-    $('body').attr('class', langList.join(' '));
-    config.set('lang', selectedValue);
-    config.get();
-
+    config.set('theme', theme);
+    setTheme(theme);
   });
-});
 
+  $('.select-language').on('change', function () {
+    selectedValue = $(this).val();
+    config.get();
+    config.getUserConfig();
+    config.set('lang', selectedValue);
+  });
+  
+  onAppLoad = function() {  
+    var appConfig = config.get();
+    var theme = appConfig.theme;
+    setTheme(theme);
+}
+});

@@ -3,18 +3,21 @@ var config = {
     theme: 'light',
     lang: 'en'
   },
-  getUserConfig: function(){
+  getUserConfig: function () {
     var userConfig = localStorage.getItem('config') || '{}';
     return JSON.parse(userConfig);
   },
 
-  get: function () {  
+  get: function () {
     return Object.assign({}, this.defaults, this.getUserConfig());
   },
+
   set: function (key, value) {
     var userConfig = this.getUserConfig();
-    var newUserConfig = Object.assign({}, userConfig, {[key]: value});
+    var newUserConfig = Object.assign({}, userConfig, {
+      [key]: value
+    });
     localStorage.setItem('config', JSON.stringify(newUserConfig));
     return newUserConfig;
   },
-};
+};  
