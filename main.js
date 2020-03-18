@@ -1,6 +1,8 @@
 $(document).ready(function () {
   var originalEl = $('.original');
   var draggableEl = $('.draggable-js')
+  var selectThemeEl = $('.select-theme');
+  var selectLangEl = $('.select-lang');
   var mobileBreakpoint = 768;
   var isMobile = function () {
     return $(window).width() < mobileBreakpoint;
@@ -8,7 +10,7 @@ $(document).ready(function () {
 
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
-  }
+  };
 
   var autosizeInputField = function () {
     var el = $(this);
@@ -16,16 +18,33 @@ $(document).ready(function () {
       el.css({
         height: 'auto',
       });
-
       el.css({
         height: el[0].scrollHeight
       });
     }, 0);
-  }
+  };
+
+  var onAppLoad = function () {
+    var appConfig = config.get();
+    setTheme(appConfig.theme);
+    selectThemeEl.val(appConfig.theme);
+    selectLangEl.val(appConfig.lang);
+  };
+
+  var setTheme = function (theme) {
+    var newTheme = 'theme-' + theme;
+    var classList = $('body').attr('class').split(' ');
+
+    classList = classList.filter(function (className) {
+      return !className.startsWith('theme-')
+    });
+    classList.push(newTheme);
+    $('body').attr('class', classList.join(' '));
+  };
 
   var setActiveSticker = function (el) {
     el.appendTo(draggableEl);
-  }
+  };
 
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
@@ -68,18 +87,21 @@ $(document).ready(function () {
       'left': randomPosLeft,
       'top': randomPosTop
     });
-  }
+  };
 
-  cloneSticker();
   $('.add').on('click', cloneSticker);
 
-  $('.select-theme').on('change', function () {
-    var newTheme = 'theme-' + $(this).val();
-    var classList = $('body').attr('class').split(' ');
-    classList = classList.filter(function (className) {
-      return !className.startsWith('theme-')
-    });
-    classList.push(newTheme);
-    $('body').attr('class', classList.join(' '));
+  selectThemeEl.on('change', function () {
+    theme = $(this).val();
+    setTheme(theme);
+    config.set('theme', theme);
   });
+
+  selectLangEl.on('change', function () {
+    var lang = $(this).val();
+    config.set('lang', lang);
+  });
+
+  onAppLoad();
+  cloneSticker();
 });
