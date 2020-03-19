@@ -1,20 +1,20 @@
 [
     {
+        "id": "1ad42a",
         "content": "Do not forget to call Mary",
-        "positionLeft": 123,
-        "positionTop": 90,
-        "id": "1ad42a"
+        "left": 123,
+        "top": 90
     },
     {
+        "id": "34",
         "content": "cheese, eggs, milk, tomatoes",
-        "positionLeft": 3,
-        "positionTop": 3,
-        "id": "34"
+        "left": 3,
+        "top": 3
     },
     {
+        "id": "ck184",
         "content": "do this, do that",
-        "positionLeft": 78,
-        "positionTop": 32,
-        "id": "ck184"
+        "left": 78,
+        "top": 32
     }
 ]
