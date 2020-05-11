@@ -9,7 +9,8 @@ var stickers = [{
 
   },
   getAll: function () {
-
+    var stickers = localStorage.getItem('stickers');
+    return stickers;
   },
   reorder: function (id) {
 
