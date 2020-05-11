@@ -94,12 +94,12 @@ $(document).ready(function () {
   selectThemeEl.on('change', function () {
     theme = $(this).val();
     setTheme(theme);
-    config.set('theme', theme);
+    config.update('theme', theme);
   });
 
   selectLangEl.on('change', function () {
     var lang = $(this).val();
-    config.set('lang', lang);
+    config.update('lang', lang);
   });
 
   onAppLoad();
