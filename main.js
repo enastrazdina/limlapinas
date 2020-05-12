@@ -52,7 +52,17 @@ $(document).ready(function () {
     newSticker.appendTo(draggableEl);
     newSticker.draggable({
       containment: draggableEl
-    });
+    })
+    var containerWidth = draggableEl.width();
+    var containerHeight = draggableEl.height();
+    var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
+    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
+
+    var sticker = {
+      id: uuid(),
+      left: randomPosLeft,
+      top: randomPosTop,
+    };
 
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to delete?');
@@ -71,11 +81,6 @@ $(document).ready(function () {
         $(this).focus();
       })
 
-    var containerWidth = draggableEl.width();
-    var containerHeight = draggableEl.height();
-    var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
-    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
-
     newSticker.on('dragstart focus click', function () {
       if (isMobile()) {
         return;
@@ -88,6 +93,7 @@ $(document).ready(function () {
       'top': randomPosTop
     });
   };
+
 
   $('.add').on('click', cloneSticker);
 
