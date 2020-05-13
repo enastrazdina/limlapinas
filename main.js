@@ -48,16 +48,16 @@ $(document).ready(function () {
 
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
+    stickersStorage.create(sticker);
     newSticker.removeClass('original');
     newSticker.appendTo(draggableEl);
     newSticker.draggable({
       containment: draggableEl
-    })
+    });
     var containerWidth = draggableEl.width();
     var containerHeight = draggableEl.height();
     var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
     var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
-
     var sticker = {
       id: uuid(),
       left: randomPosLeft,
@@ -93,7 +93,6 @@ $(document).ready(function () {
       'top': randomPosTop
     });
   };
-
 
   $('.add').on('click', cloneSticker);
 

@@ -1,14 +1,12 @@
-var stickers = [{
+var stickersStorage = {
   update: function (id, data) {
 
   },
   create: function (sticker) {
-    var allStickers = Object.values(this.getAll());
-    allStickers.push({
-      sticker
-    });
-
-    localStorage.setItem('stickers', JSON.stringify(allStickers));
+    var stickers = this.getAll();
+    stickers.push(sticker);
+    localStorage.setItem('stickers', JSON.stringify(stickers));
+    return sticker;
   },
   delete: function (id) {
 
@@ -20,4 +18,4 @@ var stickers = [{
   reorder: function (id) {
 
   },
-}];
+};
