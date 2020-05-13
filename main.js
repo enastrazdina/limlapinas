@@ -49,20 +49,17 @@ $(document).ready(function () {
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
     newSticker.removeClass('original');
-
+    newSticker.appendTo(draggableEl);
+    newSticker.draggable({
+      containment: draggableEl
+    });
     var containerWidth = draggableEl.width();
     var containerHeight = draggableEl.height();
     var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
     var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
-
     var sticker = stickersStorage.create({
       left: randomPosLeft,
       top: randomPosTop,
-    });
-    stickersStorage.create(sticker);
-    newSticker.appendTo(draggableEl);
-    newSticker.draggable({
-      containment: draggableEl
     });
 
     newSticker.find('.close').on('click', function () {
