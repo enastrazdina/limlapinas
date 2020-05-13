@@ -4,6 +4,9 @@ var stickersStorage = {
   },
   create: function (sticker) {
     var stickers = this.getAll();
+    sticker = Object.assign({}, sticker, {
+      id: uuid()
+    });
     stickers.push(sticker);
     localStorage.setItem('stickers', JSON.stringify(stickers));
     return sticker;

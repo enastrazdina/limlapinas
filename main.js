@@ -48,21 +48,22 @@ $(document).ready(function () {
 
   var cloneSticker = function () {
     var newSticker = originalEl.clone();
-    stickersStorage.create(sticker);
     newSticker.removeClass('original');
-    newSticker.appendTo(draggableEl);
-    newSticker.draggable({
-      containment: draggableEl
-    });
+
     var containerWidth = draggableEl.width();
     var containerHeight = draggableEl.height();
     var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
     var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
-    var sticker = {
-      id: uuid(),
+
+    var sticker = stickersStorage.create({
       left: randomPosLeft,
       top: randomPosTop,
-    };
+    });
+    stickersStorage.create(sticker);
+    newSticker.appendTo(draggableEl);
+    newSticker.draggable({
+      containment: draggableEl
+    });
 
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to delete?');
@@ -123,7 +124,5 @@ function uuid() {
 
     return (c === 'x' ? r : r & (0x3 | 0x8)).toString(16);
   });
-
   return uuid;
 }
-var value = uuid();
