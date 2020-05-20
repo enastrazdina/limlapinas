@@ -29,6 +29,15 @@ $(document).ready(function () {
     setTheme(appConfig.theme);
     selectThemeEl.val(appConfig.theme);
     selectLangEl.val(appConfig.lang);
+    var stickers = stickersStorage.getAll();
+    if (stickers.length > 0) {
+      stickers.forEach(function (sticker) {
+        cloneSticker(sticker)
+      })
+    } else {
+      cloneSticker()
+      console.log('else')
+    }
   };
 
   var setTheme = function (theme) {
@@ -87,8 +96,8 @@ $(document).ready(function () {
     });
 
     newSticker.css({
-      'left': randomPosLeft,
-      'top': randomPosTop
+      'left': sticker.left,
+      'top': sticker.top
     });
   };
 
@@ -106,7 +115,6 @@ $(document).ready(function () {
   });
 
   onAppLoad();
-  cloneSticker();
 });
 
 function uuid() {
