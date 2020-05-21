@@ -70,7 +70,7 @@ $(document).ready(function () {
         left: randomPosLeft,
         top: randomPosTop,
       })
-    } else {};
+    };
 
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to delete?');
@@ -102,7 +102,9 @@ $(document).ready(function () {
     });
   };
 
-  $('.add').on('click', renderSticker);
+  $('.add').on('click', function () {
+    renderSticker();
+  });
 
   selectThemeEl.on('change', function () {
     theme = $(this).val();
