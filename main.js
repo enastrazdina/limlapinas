@@ -32,11 +32,10 @@ $(document).ready(function () {
     var stickers = stickersStorage.getAll();
     if (stickers.length > 0) {
       stickers.forEach(function (sticker) {
-        cloneSticker(sticker)
+        renderSticker(sticker)
       })
     } else {
-      cloneSticker()
-      console.log('else')
+      renderSticker()
     }
   };
 
@@ -55,7 +54,7 @@ $(document).ready(function () {
     el.appendTo(draggableEl);
   };
 
-  var cloneSticker = function () {
+  var renderSticker = function (sticker) {
     var newSticker = originalEl.clone();
     newSticker.removeClass('original');
     newSticker.appendTo(draggableEl);
@@ -66,10 +65,12 @@ $(document).ready(function () {
     var containerHeight = draggableEl.height();
     var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
     var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
-    var sticker = stickersStorage.create({
-      left: randomPosLeft,
-      top: randomPosTop,
-    });
+    if (!sticker) {
+      var sticker = stickersStorage.create({
+        left: randomPosLeft,
+        top: randomPosTop,
+      })
+    } else {};
 
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to delete?');
@@ -101,7 +102,7 @@ $(document).ready(function () {
     });
   };
 
-  $('.add').on('click', cloneSticker);
+  $('.add').on('click', renderSticker);
 
   selectThemeEl.on('change', function () {
     theme = $(this).val();
