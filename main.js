@@ -6,7 +6,7 @@ $(document).ready(function () {
   var mobileBreakpoint = 768;
   var isMobile = function () {
     return $(window).width() < mobileBreakpoint;
-  }
+  };
 
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
@@ -69,8 +69,8 @@ $(document).ready(function () {
       var sticker = stickersStorage.create({
         left: randomPosLeft,
         top: randomPosTop,
-      })
-    };
+      });
+    }
 
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to delete?');
