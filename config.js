@@ -12,7 +12,7 @@ var config = {
     return Object.assign({}, this.defaults, this.getUserConfig());
   },
 
-  set: function (key, value) {
+  update: function (key, value) {
     var userConfig = this.getUserConfig();
     var newUserConfig = Object.assign({}, userConfig, {
       [key]: value

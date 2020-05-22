@@ -6,7 +6,7 @@ $(document).ready(function () {
   var mobileBreakpoint = 768;
   var isMobile = function () {
     return $(window).width() < mobileBreakpoint;
-  }
+  };
 
   var deleteSticker = function (stickerEl) {
     stickerEl.remove();
@@ -29,6 +29,14 @@ $(document).ready(function () {
     setTheme(appConfig.theme);
     selectThemeEl.val(appConfig.theme);
     selectLangEl.val(appConfig.lang);
+    var stickers = stickersStorage.getAll();
+    if (stickers.length > 0) {
+      stickers.forEach(function (sticker) {
+        renderSticker(sticker)
+      })
+    } else {
+      renderSticker()
+    }
   };
 
   var setTheme = function (theme) {
@@ -46,13 +54,23 @@ $(document).ready(function () {
     el.appendTo(draggableEl);
   };
 
-  var cloneSticker = function () {
+  var renderSticker = function (sticker) {
     var newSticker = originalEl.clone();
     newSticker.removeClass('original');
     newSticker.appendTo(draggableEl);
     newSticker.draggable({
       containment: draggableEl
     });
+    var containerWidth = draggableEl.width();
+    var containerHeight = draggableEl.height();
+    var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
+    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
+    if (!sticker) {
+      var sticker = stickersStorage.create({
+        left: randomPosLeft,
+        top: randomPosTop,
+      });
+    }
 
     newSticker.find('.close').on('click', function () {
       var confirmationText = confirm('Do you really want to delete?');
@@ -71,11 +89,6 @@ $(document).ready(function () {
         $(this).focus();
       })
 
-    var containerWidth = draggableEl.width();
-    var containerHeight = draggableEl.height();
-    var randomPosLeft = Math.floor(Math.random() * (containerWidth - newSticker.width()));
-    var randomPosTop = Math.floor(Math.random() * (containerHeight - newSticker.height()));
-
     newSticker.on('dragstart focus click', function () {
       if (isMobile()) {
         return;
@@ -84,24 +97,40 @@ $(document).ready(function () {
     });
 
     newSticker.css({
-      'left': randomPosLeft,
-      'top': randomPosTop
+      'left': sticker.left,
+      'top': sticker.top
     });
   };
 
-  $('.add').on('click', cloneSticker);
+  $('.add').on('click', function () {
+    renderSticker();
+  });
 
   selectThemeEl.on('change', function () {
     theme = $(this).val();
     setTheme(theme);
-    config.set('theme', theme);
+    config.update('theme', theme);
   });
 
   selectLangEl.on('change', function () {
     var lang = $(this).val();
-    config.set('lang', lang);
+    config.update('lang', lang);
   });
 
   onAppLoad();
-  cloneSticker();
 });
+
+function uuid() {
+  var seed = Date.now();
+  if (window.performance && typeof window.performance.now === "function") {
+    seed += performance.now();
+  }
+
+  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (seed + Math.random() * 16) % 16 | 0;
+    seed = Math.floor(seed / 16);
+
+    return (c === 'x' ? r : r & (0x3 | 0x8)).toString(16);
+  });
+  return uuid;
+}
